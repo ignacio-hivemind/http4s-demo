@@ -5,6 +5,9 @@ ThisBuild / scalaVersion := "3.5.2"
 lazy val root = (project in file("."))
   .settings(name := "http4s-demo")
 
+addCommandAlias("fmt", "all scalafmtSbt scalafmt test:scalafmt")
+addCommandAlias("check", "clean; fmt; all compile Test/compile IntegrationTest/compile; test")
+
 val http4sVersion = "1.0.0-M41"
 val circeVersion  = "0.14.9"
 
